@@ -72,7 +72,7 @@ export default function Manager() {
                 <div className="passwords">
                     <h2 className="font-bold text-2xl py-4">Your passwords </h2>
                     {passwordArray.length === 0 && <div> No passwords to show </div>}
-                    {passwordArray.length != 0 && <PasswordTable />}
+                    {passwordArray.length != 0 && <PasswordTable passwordArray={passwordArray} />}
                 </div>
             </div>
         </>
