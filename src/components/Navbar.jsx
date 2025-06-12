@@ -8,8 +8,10 @@ export default function Navbar(){
           {/* Logo/Brand */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
-                Passwd
+              <h1 className="text-2xl inline-block font-bold text-gray-900 tracking-tight cursor-pointer">
+              <span className='text-purple-600'>&lt; </span>
+                Pass
+              <span className='text-purple-600'>wd /&gt; </span>
               </h1>
             </div>
           </div>

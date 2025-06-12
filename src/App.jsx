@@ -1,4 +1,4 @@
-import './App.css'
+import './index.css'
 import Manager from './components/Manager'
 import Navbar from './components/Navbar'
 
