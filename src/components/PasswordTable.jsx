@@ -1,7 +1,7 @@
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function PasswordTable({ passwordArray, setPasswordArray, setForm, buttonRef }) {
+export default function PasswordTable({ passwordArray, setPasswordArray, setForm }) {
     const copyText = (text) => {
         navigator.clipboard.writeText(text);
         toast('Copied to clipboard!', {
@@ -33,6 +33,7 @@ export default function PasswordTable({ passwordArray, setPasswordArray, setForm
         let conf = confirm("Do you really want to delete the password?");
         if(conf){
             setPasswordArray(passwordArray.filter(item=>item.id!=id));
+            localStorage.setItem(passwordArray.filter(item=>item.id!=id));
         }
 
     }
@@ -40,8 +41,8 @@ export default function PasswordTable({ passwordArray, setPasswordArray, setForm
     const editPassword = (id) => {
         console.log("Editing password for the id: ",id);
         setForm(passwordArray.filter(item=>item.id == id)[0]);
-
         setPasswordArray(passwordArray.filter(item=>item.id!=id));
+        localStorage.setItem(passwordArray.filter(item=>item.id!=id));
     }
 
     return (
@@ -101,7 +102,7 @@ export default function PasswordTable({ passwordArray, setPasswordArray, setForm
                         </td>
                         <td className="text-center w-30 py-2 px-2 border border-white">
                              <div className="flex items-center justify-center gap-1 flex-wrap">
-                                <span className="text-xs sm:text-sm truncate max-w-[80px] sm:max-w-none">{item.password}</span>
+                                <span className="text-xs sm:text-sm truncate max-w-[80px] sm:max-w-none">{"*".repeat(item.password.length)}</span>
                                 <div onClick={()=>{copyText(item.password)}}>
                                 <lord-icon
                                     style={{width: "16px", height: "16px"}}
